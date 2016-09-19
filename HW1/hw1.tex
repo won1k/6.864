@@ -54,12 +54,20 @@
 \section{Smoothing}
 
 \subsection{} Note that the log-likelihood of the training corpus (size $N$) is given by:
-$$\log P(w_1, \dots, w_N) = \sum_{i=1}^N \log P(w_i|w_{i-1}, w_{i-2})$$
-Thus, the 
+$$\log P(w_1, \dots, w_N) = \sum_{i=1}^N \log P(w_i|w_{i-1}, w_{i-2}) = \sum_{i=1}^N \log\left(\frac{\text{count}(w_{i-2}, w_{i-1}, w_i) + \alpha}{\text{count}(w_{i-2}, w_{i-1}) + \alpha |V|}\right)$$
+Thus, as $\alpha\rightarrow\infty$, the terms all go to $1/|V|$, as the smoothing term dominates the count terms. In this case we end up with a log-likelihood of $-N\log|V|$. Note that with $\alpha = 0$, we have the MLE estimate, so that the log-likelihood of the training corpus must be greatest at that $\alpha = 0$. Thus, we expect a decline in log-likelihood starting from the MLE value at $\alpha = 0$ to the limiting value of $-N\log|V|$ as $\alpha \rightarrow \infty$, as sketched in {\bf Figure 1}.
 
-\subsection{}
+\begin{figure}
+	\caption{1.1}
+\end{figure}
 
-\subsection{}
+\subsection{} On a large test corpus, there will almost surely be a tri-gram that is not seen in the training corpus. Thus, for this tri-gram, $p(w_t|w_{t-2},w_{t-1}) = 0$ with no smoothing, so the log-likelihood of the test corpus will be $-\infty$ with $\alpha = 0$.
+
+Given the non-trivial performance of tri-gram models in practice, it is also likely that for some smoothing factor $0 <\alpha < \infty$, the log-likelihood will be greater (i.e. model performs better) than that of a uniform uni-gram model, which is what the $\alpha\rightarrow\infty$ limit represents. Thus, for some values of $\alpha$, we must have $\log P(w_1, \dots, w_N) > -N\log|V|$, where $N$ is now the size of the test corpus, and so a curve such as in {\bf Figure 2} may result.
+
+\subsection{} The perplexity is simply:
+$$\text{perp} = 2^{-\frac{1}{N} \log P(w_1, \dots, w_N)}$$
+so as $\alpha \rightarrow\infty$ and $P(w_1, \dots, w_N) \rightarrow -N\log |V|$, $\text{perp} \rightarrow |V|$ is the limiting value. But when $\alpha = 0$, we had a $-\infty$ log-likelihood, which yields $\text{perp} = \infty$. Thus, we expect the perplexity value to behave as in {\bf Figure 3} as $\alpha$ varies, achieving a lower perplexity than a uniform uni-gram model with some non-zero smoothing factor.
 
 \subsection{} As $\alpha \rightarrow \infty$, we have for any tri-gram:
 $$p(w_t|w_{t-2},w_{t-1}) \rightarrow \frac{1}{|V|}$$
@@ -75,7 +83,25 @@ assuming that $nd, m \geq 1$.
 \subsection{} For a GPU-optimized model, the calculations above are altered so that the input signal to hidden units requires only $O(nd)$, hidden unit requires $O(1)$, input signal to output requires $O(m)$, and softmax requires $O(|V|)$, simply to calculate the partition function. Thus, the complexity is:
 $$O(nd + m + |V|)$$
 
-\subsection{}
+\subsection{} We denote $p_y \equiv P(w_t = y|w_{t-1}, w_{t-2})$ for all cases. We start by considering:
+$$\frac{\partial \log p_y}{\partial z_{k}^o} = \frac{\partial}{\partial z_k^o} \frac{e^{z_y^o}}{\sum_l e^{z_l^o}} = \left\{ \begin{matrix} \frac{e^{z_y^o}\left( \sum_l e^{z_l^o} - e^{z_k^o} \right)}{\left(\sum_l e^{z_l^o} \right)^2} = p_y^o(1-p_k^o) & y = k \\ -\frac{e^{z_y^o}e^{z_k^o}}{\left(\sum_l e^{z_l^o} \right)^2} = -p_y^o p_k^o & y \neq k \end{matrix} \right.$$
+Thus, we have:
+$$\delta_k^o = \frac{\partial \log p_y}{\partial z_k^o} = \frac{1}{p_y} \frac{\partial p_y}{\partial z_k^o} = \left\{ \begin{matrix} 1-p_k^o & y = k \\ -p_k^o & y\neq k \end{matrix} \right.$$
+
+Now for $\delta_j^h$, we use the chain rule to obtain:
+
+$$\delta_j^h \equiv \frac{\partial \log p_y}{\partial z_j^h} = \sum_k \frac{\partial \log p_y}{\partial z_k^o} \frac{\partial z_k^o}{\partial z_j^h} = \sum_k \delta_k^o \left[ \sum_l \frac{\partial z_k^o}{\partial f_l^h}\frac{\partial f_l^h}{\partial z_j^h} \right]$$
+but we have $\frac{\partial z_k^o}{\partial f_l^h} = W_{lk}^o$ and:
+$$\frac{\partial f_l^h}{\partial z_j^h} = \left\{ \begin{matrix} 0 & l \neq j \\ \frac{\partial \tanh(z_j^h)}{\partial z_j^h} = 1-\tanh^2(z_j^h) & l = j \end{matrix} \right.$$
+Putting these together:
+$$\delta_j^h = \sum_j W_{jk}^o (1-\tanh^2(z_j^h)) \delta_k^o$$
+
+Finally, we have:
+$$\delta_i^x = \sum_j \frac{\partial \log p_y}{\partial z_j^h}\frac{\partial z_j^h}{\partial x_i} = \sum_j W_{ij}^h\delta_j^h$$
+
+Using $\delta_i^x$, the stochastic gradient step for updating $v(w_{t-2})$ is:
+$$v(w_{t-2}) \leftarrow v(w_{t-2}) - \eta \nabla_{x} \log p_y[1:d] = v(w_{t-2}) - \eta (\delta_1^x, \dots, \delta_d^x)$$
+where the $[1:d]$ notation represents taking the first $d$ elements of the gradient vector. 
 
 \subsection{}
 
