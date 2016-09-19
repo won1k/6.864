@@ -47,13 +47,16 @@ def nnlm(ngram, dword, dhid, epochs):
     ngrams2 = lm.ngramGen(corpus_dev,w2index,n)
 
     lrate = 0.5  # Learning rate
+    trainLL = 0
+    devLL = 0
     for it in xrange(epochs): # passes through the training data
         LL, N  = 0.0, 0 # Average log-likelihood, number of ngrams    
         for ng in ngrams:
             pr = neurallm.update(ng,lrate)
             LL += np.log(pr)
             N  += 1
-        print('Train:\t{0}\tLL = {1}'.format(it, LL / N)) 
+        print('Train:\t{0}\tLL = {1}'.format(it, LL / N))
+        trainLL = LL/N
 
         #Dev set
         LL, N = 0.0, 0 # Average log-likelihood, number of ngrams
@@ -63,5 +66,6 @@ def nnlm(ngram, dword, dhid, epochs):
                 LL += np.log(pr)
                 N  += 1
         print('Dev:\t{0}\tLL = {1}'.format(it, LL / N)) 
+        devLL = LL/N
 
-    return LL/N
+    return trainLL, devLL
