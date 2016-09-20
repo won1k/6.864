@@ -5,9 +5,9 @@ import sys
 import example
 import pickle
 
-ngrams = [2, 3, 5, 8]
-dwords = [5, 10, 20, 50]
-dhids = [10, 30, 50, 100]
+ngrams = [2, 3, 5]
+dwords = [5, 10, 20]
+dhids = [10, 30, 50]
 trainLLs = {}
 devLLs = {}
 
