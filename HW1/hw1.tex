@@ -103,11 +103,15 @@ Using $\delta_i^x$, the stochastic gradient step for updating $v(w_{t-2})$ is:
 $$v(w_{t-2}) \leftarrow v(w_{t-2}) - \eta \nabla_{x} \log p_y[1:d] = v(w_{t-2}) - \eta (\delta_1^x, \dots, \delta_d^x)$$
 where the $[1:d]$ notation represents taking the first $d$ elements of the gradient vector. 
 
-\subsection{}
+\subsection{} (a)
 
-\subsection{} The neural network model will {\bf not} necessarily assign a zero/near-zero value to unseen words. This is because the embedding layer $v(w_{t})$ embeds the words, even unseen words, into a lower-dimensional (as opposed to one-hot) and dense vector. If an unseen word (or $n$-gram) is close in the dense space to another word which has been seen, it will have relatively close probability values to the seen word (i.e. non-zero). However, if the word is unseen, then the embedding vector is completely untrained, so that the embedding is most likely meaningless and distant from learned embeddings. In this case, the model will likely assign a near-zero probability to the unseen word (but as noted above, this need not be the case).
+(b) We tested every combination for a number of different parameter values. Namely, we considered: $n = 2, 3, 5$, $d = 5, 10, 20$, and $m = 10, 30, 50$. We found that the best configuration in terms of development log-likelihood was $n=3, d = 5, m = 50$. The average test log-likelihood for these parameters was ...
 
-In a similar fashion, the model can assign a reasonable prediction for $w_t$, even if the specific preceding context did not appear in the training set. If the individual words $w_{t-i}$ were seen in training, then the embedding vectors $v(w_{t-i})$ will be trained, so the entire concatenation of vectors $[v(w_{t-1}) \cdots v(w_{t-n+1})]$ will have a reasonable value in the dense embedding space. Thus, a reasonable prediction for $w_t$ can be made in this situation.
+(c) In {\bf Figure 3}, we plot the dependence of 
+
+\subsection{} (a) The neural network model will {\bf not} necessarily assign a zero/near-zero value to unseen words. This is because the embedding layer $v(w_{t})$ embeds the words, even unseen words, into a lower-dimensional (as opposed to one-hot) and dense vector. If an unseen word (or $n$-gram) is close in the dense space to another word which has been seen, it will have relatively close probability values to the seen word (i.e. non-zero). However, if the word is unseen, then the embedding vector is completely untrained, so that the embedding is most likely meaningless and distant from learned embeddings. In this case, the model will likely assign a near-zero probability to the unseen word (but as noted above, this need not be the case).
+
+(b) In a similar fashion, the model can assign a reasonable prediction for $w_t$, even if the specific preceding context did not appear in the training set. If the individual words $w_{t-i}$ were seen in training, then the embedding vectors $v(w_{t-i})$ will be trained, so the entire concatenation of vectors $[v(w_{t-1}) \cdots v(w_{t-n+1})]$ will have a reasonable value in the dense embedding space. Thus, a reasonable prediction for $w_t$ can be made in this situation.
 
 \subsection{}
 

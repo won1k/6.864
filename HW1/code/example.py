@@ -34,6 +34,16 @@ def nnlm(ngram, dword, dhid, epochs):
             LLB += np.log(probB[w[0], w[1]])
             N += 1
     print("Bi-gram Dev LL = {0}".format(LLB / N))
+    biDevLL = LLB/N
+
+    LLB, N          = 0.0, 0
+    bi              = lm.ngramGen(corpus_test, w2index, 2)
+    for w in bi:
+        if (count_train[w[1]]>0): # for now, skip target words not seen in training
+            LLB += np.log(probB[w[0], w[1]])
+            N += 1
+    print("Bi-gram Test LL = {0}".format(LLB / N))
+    biTestLL = LLB/N
 
     # Network model
     print("\nNetwork model training:")
@@ -45,10 +55,12 @@ def nnlm(ngram, dword, dhid, epochs):
 
     ngrams = lm.ngramGen(corpus_train,w2index,n)
     ngrams2 = lm.ngramGen(corpus_dev,w2index,n)
+    ngrams3 = lm.ngramGen(corpus_test,w2index,n)
 
     lrate = 0.5  # Learning rate
     trainLL = 0
     devLL = 0
+    testLL = 0
     for it in xrange(epochs): # passes through the training data
         LL, N  = 0.0, 0 # Average log-likelihood, number of ngrams    
         for ng in ngrams:
@@ -68,4 +80,14 @@ def nnlm(ngram, dword, dhid, epochs):
         print('Dev:\t{0}\tLL = {1}'.format(it, LL / N)) 
         devLL = LL/N
 
-    return trainLL, devLL
+        #Test set
+        LL, N = 0.0, 0 # Average log-likelihood, number of ngrams
+        for ng in ngrams3:
+            if (count_train[ng[-1]]>0): # for now, skip target words not seen in training
+                pr = neurallm.prob(ng)
+                LL += np.log(pr)
+                N  += 1
+        print('Test:\t{0}\tLL = {1}'.format(it, LL / N)) 
+        testLL = LL/N
+
+    return trainLL, devLL, testLL, biDevLL, biTestLL

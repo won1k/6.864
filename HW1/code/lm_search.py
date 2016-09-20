@@ -10,13 +10,19 @@ dwords = [5, 10, 20]
 dhids = [10, 30, 50]
 trainLLs = {}
 devLLs = {}
+testLLs = {}
+biDev = 0
+biTest = 0
 
 for ngram in ngrams:
 	for dword in dwords:
 		for dhid in dhids:
-			trainLL, devLL = example.nnlm(ngram, dword, dhid, 20)
+			trainLL, devLL, testLL, biDevLL, biTestLL = example.nnlm(ngram, dword, dhid, 20)
 			trainLLs[(ngram, dword, dhid)] = trainLL
 			devLLs[(ngram, dword, dhid)] = devLL
+			testLLs[(ngram, dword, dhid)] = testLL
+			biDev = biDevLL
+			biTest = biTestLL
 			print(trainLL, devLL)
 
 with open("lm_search_train20.dict","w") as f:
@@ -25,3 +31,6 @@ with open("lm_search_train20.dict","w") as f:
 with open("lm_search_dev20.dict","w") as f:
 	pickle.dump(devLLs, f)
 
+print("saved!")
+print('Bi-gram Dev LL: ' + str(biDev))
+print('Bi-gram Test LL: ' + str(biTest))
