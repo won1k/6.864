@@ -25,11 +25,14 @@ for ngram in ngrams:
 			biTest = biTestLL
 			print(trainLL, devLL)
 
-with open("lm_search_train20.dict","w") as f:
+with open("lm_search_train.dict","w") as f:
 	pickle.dump(trainLLs, f)
 
-with open("lm_search_dev20.dict","w") as f:
+with open("lm_search_dev.dict","w") as f:
 	pickle.dump(devLLs, f)
+
+with open("lm_search_test.dict","w") as f:
+	pickle.dump(testLLs, f)
 
 print("saved!")
 print('Bi-gram Dev LL: ' + str(biDev))
