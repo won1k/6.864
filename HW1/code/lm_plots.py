@@ -16,6 +16,10 @@ with open("lm_search_test.dict","r") as f:
 	testLLs = pickle.load(f)
 
 maxParams = max(devLLs, key = devLLs.get)
+print("Max parameters: ", maxParams)
+print("Max dev LL ", devLLs[maxParams])
+print("Max test LL ", testLLs[maxParams])
+
 
 # Plots
 ngrams = [2, 3, 5]
@@ -27,11 +31,11 @@ for ngram in ngrams:
 		trainLLvalues = []
 		for dhid in dhids:
 			trainLLvalues.append(trainLLs[(ngram, dword, dhid)])
-		plt.plot(dhids, trainLLvalues, label = str(dhid))
+		plt.plot(dhids, trainLLvalues, label = str(dword))
 	plt.xlabel('hidden dim')
 	plt.ylabel('average LL')
 	plt.legend()
-	plt.savefig('hw1_train_n' + str(ngram) + '_d' + str(dword) + '.pdf')
+	plt.savefig('hw1_train_n' + str(ngram) + '.pdf')
 
 for ngram in ngrams:
 	fig = plt.figure()
@@ -39,8 +43,8 @@ for ngram in ngrams:
 		testLLvalues = []
 		for dhid in dhids:
 			testLLvalues.append(testLLs[(ngram, dword, dhid)])
-		plt.plot(dhids, testLLvalues, label = str(dhid))
+		plt.plot(dhids, testLLvalues, label = str(dword))
 	plt.xlabel('hidden dim')
 	plt.ylabel('average LL')
 	plt.legend()
-	plt.savefig('hw1_test_n' + str(ngram) + '_d' + str(dword) + '.pdf')
+	plt.savefig('hw1_test_n' + str(ngram) + '.pdf')

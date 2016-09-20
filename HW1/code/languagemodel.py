@@ -1,5 +1,6 @@
 import numpy as np
 import re
+import pickle
 
 # ----------------------------------
 def readCorpus(filename):
@@ -44,6 +45,9 @@ def buildIndex(corpus, lowthreshold=5):
     for j in range(1, 5):
         newindex["<START-" + str(j) + ">"] = indx
         indx += 1
+
+    with open("data/corpus.dict","w") as f:
+        pickle.dump(newindex, f)
 
     return newindex, indx
 
