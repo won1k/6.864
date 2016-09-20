@@ -17,7 +17,7 @@ biTest = 0
 for ngram in ngrams:
 	for dword in dwords:
 		for dhid in dhids:
-			trainLL, devLL, testLL, biDevLL, biTestLL = example.nnlm(ngram, dword, dhid, 15)
+			trainLL, devLL, testLL, biDevLL, biTestLL = example.nnlm(ngram, dword, dhid, 20)
 			trainLLs[(ngram, dword, dhid)] = trainLL
 			devLLs[(ngram, dword, dhid)] = devLL
 			testLLs[(ngram, dword, dhid)] = testLL
