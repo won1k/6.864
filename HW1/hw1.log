@@ -1,51 +1,51 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  19 SEP 2016 12:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.6.18)  20 SEP 2016 07:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **hw1.tex
 (./hw1.tex
-LaTeX2e <2014/05/01>
-Babel <3.9k> and hyphenation patterns for 78 languages loaded.
-(/usr/local/texlive/2014/texmf-dist/tex/latex/amscls/amsart.cls
-Document Class: amsart 2009/07/02 v2.20.1
+LaTeX2e <2015/01/01>
+Babel <3.9l> and hyphenation patterns for 21 languages loaded.
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/amscls/amsart.cls
+Document Class: amsart 2015/03/04 v2.20.2
 \linespacing=\dimen102
 \normalparindent=\dimen103
 \normaltopskip=\skip41
-(/usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2013/01/14 v2.14 AMS math features
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2016/03/10 v2.15b AMS math features
 \@mathmargin=\skip42
 
 For additional information on amsmath, use the `?' option.
-(/usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amstext.sty
-Package: amstext 2000/06/29 v2.01
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amsgen.sty
-File: amsgen.sty 1999/11/30 v2.0
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks14
 \ex@=\dimen104
 ))
-(/usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amsbsy.sty
-Package: amsbsy 1999/11/29 v1.2d
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen105
 )
-(/usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amsopn.sty
-Package: amsopn 1999/12/14 v2.01 operator names
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
 )
 \inf@bad=\count79
-LaTeX Info: Redefining \frac on input line 210.
+LaTeX Info: Redefining \frac on input line 199.
 \uproot@=\count80
 \leftroot@=\count81
-LaTeX Info: Redefining \overline on input line 306.
+LaTeX Info: Redefining \overline on input line 297.
 \classnum@=\count82
 \DOTSCASE@=\count83
-LaTeX Info: Redefining \ldots on input line 378.
-LaTeX Info: Redefining \dots on input line 381.
-LaTeX Info: Redefining \cdots on input line 466.
+LaTeX Info: Redefining \ldots on input line 394.
+LaTeX Info: Redefining \dots on input line 397.
+LaTeX Info: Redefining \cdots on input line 518.
 \Mathstrutbox@=\box26
 \strutbox@=\box27
 \big@size=\dimen106
-LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OML on input line 634.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 635.
 \macc@depth=\count84
 \c@MaxMatrixCols=\count85
 \dotsspace@=\muskip10
@@ -66,15 +66,15 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
 \multlinegap=\skip43
 \multlinetaggap=\skip44
 \mathdisplay@stack=\toks18
-LaTeX Info: Redefining \[ on input line 2665.
-LaTeX Info: Redefining \] on input line 2666.
+LaTeX Info: Redefining \[ on input line 2739.
+LaTeX Info: Redefining \] on input line 2740.
 )
 LaTeX Font Info:    Try loading font information for U+msa on input line 388.
 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsa.fd
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-(/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 
 
@@ -108,14 +108,14 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 \thm@postskip=\skip49
 \thm@headsep=\skip50
 \dth@everypar=\toks24
-) (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/amssymb.sty
+) (/usr/local/texlive/2015basic/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 )
-(/usr/local/texlive/2014/texmf-dist/tex/generic/xypic/xy.sty
-(/usr/local/texlive/2014/texmf-dist/tex/generic/xypic/xy.tex Bootstrap'ing:
-catcodes, docmode,
-(/usr/local/texlive/2014/texmf-dist/tex/generic/xypic/xyrecat.tex)
-(/usr/local/texlive/2014/texmf-dist/tex/generic/xypic/xyidioms.tex)
+(/usr/local/texlive/2015basic/texmf-dist/tex/generic/xypic/xy.sty
+(/usr/local/texlive/2015basic/texmf-dist/tex/generic/xypic/xy.tex
+Bootstrap'ing: catcodes, docmode,
+(/usr/local/texlive/2015basic/texmf-dist/tex/generic/xypic/xyrecat.tex)
+(/usr/local/texlive/2015basic/texmf-dist/tex/generic/xypic/xyidioms.tex)
 
  Xy-pic version 3.8.9 <2013/10/06>
  Copyright (c) 1991-2013 by Kristoffer H. Rose <krisrose@tug.org> and others
@@ -170,15 +170,15 @@ utility macros; pictures: \xy, positions,
  decorations;
 kernel objects: directionals, circles, text; options; algorithms: directions,
 edges, connections;  Xy-pic loaded)
-(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+(/usr/local/texlive/2015basic/texmf-dist/tex/generic/oberdiek/ifpdf.sty
 Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
 Package ifpdf Info: pdfTeX in PDF mode is detected.
 )
 Package: xy 2013/10/06 Xy-pic version 3.8.9
 
-(/usr/local/texlive/2014/texmf-dist/tex/generic/xypic/xyall.tex
+(/usr/local/texlive/2015basic/texmf-dist/tex/generic/xypic/xyall.tex
  Xy-pic option: All features v.3.8
-(/usr/local/texlive/2014/texmf-dist/tex/generic/xypic/xycurve.tex
+(/usr/local/texlive/2015basic/texmf-dist/tex/generic/xypic/xycurve.tex
  Xy-pic option: Curve and Spline extension v.3.12 curve,
 \crv@cnt@=\count103
 \crvpts@=\toks29
@@ -190,21 +190,21 @@ Package: xy 2013/10/06 Xy-pic version 3.8.9
  circles,
 \L@=\dimen146
  loaded)
-(/usr/local/texlive/2014/texmf-dist/tex/generic/xypic/xyframe.tex
+(/usr/local/texlive/2015basic/texmf-dist/tex/generic/xypic/xyframe.tex
  Xy-pic option: Frame and Bracket extension v.3.14 loaded)
-(/usr/local/texlive/2014/texmf-dist/tex/generic/xypic/xycmtip.tex
+(/usr/local/texlive/2015basic/texmf-dist/tex/generic/xypic/xycmtip.tex
  Xy-pic option: Computer Modern tip extension v.3.7
-(/usr/local/texlive/2014/texmf-dist/tex/generic/xypic/xytips.tex
+(/usr/local/texlive/2015basic/texmf-dist/tex/generic/xypic/xytips.tex
  Xy-pic option: More Tips extension v.3.11 loaded) loaded)
-(/usr/local/texlive/2014/texmf-dist/tex/generic/xypic/xyline.tex
+(/usr/local/texlive/2015basic/texmf-dist/tex/generic/xypic/xyline.tex
  Xy-pic option: Line styles extension v.3.10
 \xylinethick@=\dimen147
  loaded)
-(/usr/local/texlive/2014/texmf-dist/tex/generic/xypic/xyrotate.tex
+(/usr/local/texlive/2015basic/texmf-dist/tex/generic/xypic/xyrotate.tex
  Xy-pic option: Rotate and Scale extension v.3.8 loaded)
-(/usr/local/texlive/2014/texmf-dist/tex/generic/xypic/xycolor.tex
+(/usr/local/texlive/2015basic/texmf-dist/tex/generic/xypic/xycolor.tex
  Xy-pic option: Colour extension v.3.11 loaded)
-(/usr/local/texlive/2014/texmf-dist/tex/generic/xypic/xymatrix.tex
+(/usr/local/texlive/2015basic/texmf-dist/tex/generic/xypic/xymatrix.tex
  Xy-pic option: Matrix feature v.3.14
 \Row=\count104
 \Col=\count105
@@ -214,29 +214,28 @@ Package: xy 2013/10/06 Xy-pic version 3.8.9
 \qcount@@=\count107
 \matrixsize@=\count108
  loaded)
-(/usr/local/texlive/2014/texmf-dist/tex/generic/xypic/xyarrow.tex
+(/usr/local/texlive/2015basic/texmf-dist/tex/generic/xypic/xyarrow.tex
  Xy-pic option: Arrow and Path feature v.3.9 path, \ar, loaded)
-(/usr/local/texlive/2014/texmf-dist/tex/generic/xypic/xygraph.tex
+(/usr/local/texlive/2015basic/texmf-dist/tex/generic/xypic/xygraph.tex
  Xy-pic option: Graph feature v.3.11 loaded) loaded)
-(/usr/local/texlive/2014/texmf-dist/tex/generic/xypic/xyarc.tex
+(/usr/local/texlive/2015basic/texmf-dist/tex/generic/xypic/xyarc.tex
  Xy-pic option: Circle, Ellipse, Arc feature v.3.8 circles, ellipses,
 elliptical arcs, loaded)
-(/usr/local/texlive/2014/texmf-dist/tex/generic/xypic/xypdf.tex
+(/usr/local/texlive/2015basic/texmf-dist/tex/generic/xypic/xypdf.tex
  Xy-pic option: PDF driver v.1.7 Xy-pic pdf driver: `color' extension support
-(/usr/local/texlive/2014/texmf-dist/tex/generic/xypic/xypdf-co.tex loaded)
+(/usr/local/texlive/2015basic/texmf-dist/tex/generic/xypic/xypdf-co.tex loaded)
 Xy-pic pdf driver: `curve' extension support
-(/usr/local/texlive/2014/texmf-dist/tex/generic/xypic/xypdf-cu.tex loaded)
+(/usr/local/texlive/2015basic/texmf-dist/tex/generic/xypic/xypdf-cu.tex loaded)
 Xy-pic pdf driver: `frame' extension support
-(/usr/local/texlive/2014/texmf-dist/tex/generic/xypic/xypdf-fr.tex loaded)
+(/usr/local/texlive/2015basic/texmf-dist/tex/generic/xypic/xypdf-fr.tex loaded)
 Xy-pic pdf driver: `line' extension support
-(/usr/local/texlive/2014/texmf-dist/tex/generic/xypic/xypdf-li.tex loaded)
+(/usr/local/texlive/2015basic/texmf-dist/tex/generic/xypic/xypdf-li.tex loaded)
 Xy-pic pdf driver: `rotate' extension support
-(/usr/local/texlive/2014/texmf-dist/tex/generic/xypic/xypdf-ro.tex loaded)
-loaded)) (/usr/local/texlive/2014/texmf-dist/tex/latex/tools/enumerate.sty
-Package: enumerate 1999/03/05 v3.00 enumerate extensions (DPC)
+(/usr/local/texlive/2015basic/texmf-dist/tex/generic/xypic/xypdf-ro.tex loaded)
+loaded)) (/usr/local/texlive/2015basic/texmf-dist/tex/latex/tools/enumerate.sty
+Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
 \@enLab=\toks32
-)
-(/usr/local/texlive/2014/texmf-dist/tex/latex/jknapltx/mathrsfs.sty
+) (/usr/local/texlive/2015basic/texmf-dist/tex/latex/jknapltx/mathrsfs.sty
 Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
 \symrsfs=\mathgroup6
 )
@@ -259,17 +258,16 @@ LaTeX Font Info:    ... okay on input line 50.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 50.
 LaTeX Font Info:    ... okay on input line 50.
 LaTeX Font Info:    Try loading font information for U+msa on input line 50.
- (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsa.fd
+ (/usr/local/texlive/2015basic/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 50.
-
-(/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsb.fd
+ (/usr/local/texlive/2015basic/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Try loading font information for U+rsfs on input line 50.
 
-(/usr/local/texlive/2014/texmf-dist/tex/latex/jknapltx/ursfs.fd
+(/usr/local/texlive/2015basic/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 Package xypdf Info: Line width: 0.39998pt on input line 50.
@@ -280,31 +278,31 @@ n/10 ) = [] [] \OML/cmm/m/it/10 P\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 w[]\OMS/cmsy
 /m/n/10 j\OML/cmm/m/it/10 w[]; w[]\OT1/cmr/m/n/10 ) = [] [] []
  []
 
-[1{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+[1{/usr/local/texlive/2015basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 [2] [3] (./hw1.aux) ) 
 Here is how much of TeX's memory you used:
- 4464 strings out of 493117
- 53048 string characters out of 6135433
- 164709 words of memory out of 5000000
- 7716 multiletter control sequences out of 15000+600000
+ 4468 strings out of 494501
+ 53512 string characters out of 6167030
+ 160581 words of memory out of 5000000
+ 7538 multiletter control sequences out of 15000+600000
  11321 words of font info for 50 fonts, out of 8000000 for 9000
- 1302 hyphenation exceptions out of 8191
+ 480 hyphenation exceptions out of 8191
  34i,9n,31p,3236b,194s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2014/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmbx10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmcsc10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmex10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfo
-nts/cmextra/cmex7.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmmi10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmmi5.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmmi7.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmr5.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmr7.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
-8.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10
-.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.p
-fb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb
->
+</usr/local/texlive/2015basic/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2015basic/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2015basic/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2015basic/texmf-dist/font
+s/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2015basic/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2015basic/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2015basic/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2015bas
+ic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2015
+basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/20
+15basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/
+2015basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texliv
+e/2015basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/te
+xlive/2015basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local
+/texlive/2015basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
 Output written on hw1.pdf (3 pages, 162334 bytes).
 PDF statistics:
  70 PDF objects out of 1000 (max. 8388607)
