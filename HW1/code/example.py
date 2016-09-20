@@ -90,4 +90,4 @@ def nnlm(ngram, dword, dhid, epochs):
         print('Test:\t{0}\tLL = {1}'.format(it, LL / N)) 
         testLL = LL/N
 
-    return trainLL, devLL, testLL, biDevLL, biTestLL
+    return trainLL, devLL, testLL, biDevLL, biTestLL, neurallm
