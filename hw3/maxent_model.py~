@@ -1,0 +1,155 @@
+import sklearn.linear_model as lm
+import operator
+from utils import *
+import numpy as np
+import sys
+
+# Initialize constants/dicts
+PAD = "PAD"
+TAG = "TAG"
+
+def read_data(file_name):
+    id = []
+    X = []
+    y = []
+    with open(file_name, "r") as f:
+        for line in f:
+            line = line.strip().split(' ')
+            if len(line) == 1:
+                id += line
+            else:
+                words = []
+                tags = []
+                for wt in line:
+                    w, t = wt.split('_')
+                    words.append(w)
+                    tags.append(t)
+                X += words
+                y += tags
+    return id, X, y
+
+def preprocess(data, tags, n, features, train):
+    '''
+    For features:
+    0 = word-tag
+    1 = caps-tag
+    2 = prefix-tag
+    3 = suffix-tag
+    4 = bigram
+    5 = trigram
+    6 = context-1 (x_{i-1}, y_i)
+    7 = context-2 (x_{i-2}, y_i)
+    [If feature_idxs not given (i.e. testing) then we
+    use best-performing features on dev as default]
+    '''
+    X = []
+    # Preprocessing
+    if train: # i.e. during training
+        global w2idx, c2idx, p2idx, s2idx, t2idx, common_prefixes, common_suffixes
+        common_prefixes = get_common_prefix(data)
+        common_suffixes = get_common_suffix(data)
+        w2idx = get_vocab(data)
+        c2idx = {True: 1, False: 0}
+        p2idx = get_prefixes(common_prefixes)
+        s2idx = get_suffixes(common_suffixes)
+        t2idx = get_tags(tags)
+        global vocab_size = len(w2idx)
+        global tag_size = len(t2idx)
+        print "Dictionaries loaded!"
+        print "Vocab size:", len(vocab_size)
+        print "Tag size:", len(tag_size)
+    
+    # Extract features
+    sys.stdout.write("\rExtracting word: %d" % idx)
+    sys.stdout.flush()
+    if n == 0:
+        X = get_word_features()
+    else:
+        X = get_context_features()
+    sys.stdout.write("\n")
+    return X
+
+        for t in range(n,-1,-1):
+            try:
+                word_features += get_word_features(data[idx-t], tags[idx-t], t, features)
+            except:
+                word_features += get_word_features(PAD, TAG, t, features)
+        X.append(word_features)
+    sys.stdout.write("\n")
+    return X
+
+def get_word_features(data, tags, features):
+    X = np.array([], dtype = np.int)
+    for feature in features:
+        if feature == 0:
+            X = np.hstack((X, word_tag(data, tags)))
+        elif feature == 1:
+            X = np.hstack((X, caps_tag(data, tags)))
+        elif feature == 2:
+            X = np.hstack((X, prefix_tag(data, tags)))
+        elif feature == 3:
+            X = np.hstack((X, suffix_tag(data, tags)))
+        elif feature == 4:
+            X = np.hstack((X, bigram(data, tags)))
+        elif feature == 5:
+            X = np.hstack((X, trigram(data, tags)))
+        elif feature == 6:
+            X = np.hstack((X, context1(data, tags)))
+        elif feature == 7:
+            X = np.hstack((X, context2(data, tags)))
+    return X
+            
+
+
+def get_word_features(word, tag, t, features):
+    word_features = []
+    for feature in features:
+        if feature == 0:
+            word_features += get_word(word, w2idx, vocab_size)
+        elif feature == 1:
+            word_features += get_cap(word, c2idx)
+        elif feature == 2:
+            word_features += get_numcaps(word)
+        elif feature == 3:
+            word_features += get_prefix(word, p2idx)
+        elif feature == 4:
+            word_features += get_suffix(word, s2idx)
+        else:
+            if t != 0: # only tag for previous words
+                word_features += get_tag(tag, tag_size)
+    return word_features
+
+def make_model():
+    return lm.LogisticRegression(solver = 'sag', max_iter = 1e3,  multi_class = 'multinomial')
+
+#def viterbi():
+
+
+if __name__ == '__main__':
+    # Parse parameters
+    print("Loading params...")
+    train_id, train_data, train_tag = read_data(sys.argv[1])
+    test_id, test_data, _ = read_data(sys.argv[2])
+    model_idx = int(sys.argv[3])
+    try:
+        n = int(sys.argv[4])
+        feature_idxs = [int(idx) for idx in sys.argv[5:]]
+    except:
+        n = 0 if model_idx == 1 else 3
+        feature_idxs = range(5)
+
+    # Extract features
+    print("Extracting features...")
+    train_features = get_features(train_data, train_tag, n, feature_idxs, True)
+    #test_features = get_features(test_data, feature_idxs)
+
+    # Make model
+    print("Generating model...")
+    model = make_model()
+
+    # Train model
+    print("Training...")
+    model.fit(train_features, train_tag)
+
+    # Save model
+    
